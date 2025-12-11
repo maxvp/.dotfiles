@@ -1,0 +1,7 @@
+[git_status]
+staged = ' [+$count](green)'
+modified = ' [!$count](yellow)'
+untracked = ' [?$count](red)'
+deleted = ' [-$count](red)'
+renamed = ' [»$count](blue)'
+stashed = ' [\$$count](green)'
