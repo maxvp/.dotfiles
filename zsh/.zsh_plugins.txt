@@ -1,0 +1,14 @@
+# --- Core Framework (The OMZ Library) ---
+# This loads the OMZ library functions without the bloat of the full framework
+ohmyzsh/ohmyzsh path:lib
+
+# --- The Essentials (Fish-like behavior) ---
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+
+# --- Utilities ---
+# "Abbr" expands aliases in place (e.g. you type 'ga', it expands to 'git add')
+olets/zsh-abbr
+# Git plugin from OMZ (provides the standard aliases like gaa, gco, etc.)
+ohmyzsh/ohmyzsh path:plugins/git
