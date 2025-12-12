@@ -104,6 +104,9 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
+### aliases and abbrs
+source "${HOME}/dotfiles/zsh/aliases.zsh"
+
 # ------------------------------
 # Post-init module configuration
 # ------------------------------
