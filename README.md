@@ -3,5 +3,6 @@
 To set up, run:
 
 ```bash
-git clone https://github.com/maxvp/.dotfiles.git $HOME && bash $HOME/.dotfiles/bootstrap.sh
+git clone https://github.com/maxvp/.dotfiles.git $HOME/.dotfiles && bash $HOME/.dotfiles/bootstrap.sh && exec zsh
 ```
+
