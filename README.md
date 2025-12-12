@@ -1,7 +1,7 @@
 # .dotfiles for zsh
 
-To set up:
+To set up, run:
 
-1. Clone the repo.
-2. Run `bootstrap.sh`.
-
+```bash
+git clone https://github.com/maxvp/.dotfiles.git $HOME && bash $HOME/.dotfiles/bootstrap.sh
+```
