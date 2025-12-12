@@ -4,7 +4,8 @@
 alias nrd="npm run dev"
 alias git-recent="git branch --sort=-committerdate"
 alias gaa="git add --all"
-unalias gp
+# only needed if using oh-my-zsh git shortcuts
+#unalias gp
 alias gp="git push"
 alias gcp="git checkout production"
 
