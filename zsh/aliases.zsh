@@ -2,6 +2,7 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nrd="npm run dev"
+alias nrb="npm run build"
 
 ### git
 alias git-recent="git branch --sort=-committerdate"
