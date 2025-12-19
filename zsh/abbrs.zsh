@@ -1,4 +1,5 @@
 # Abbreviations for zsh-abbr
+abbr nr='npm run'
 abbr gc='git commit'
 abbr gco='git checkout'
 abbr gcm='git commit -m "%"'
