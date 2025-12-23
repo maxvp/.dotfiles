@@ -1,0 +1,23 @@
+# Brewfile
+tap "homebrew/bundle"
+
+# cli
+brew "gh"
+brew "micro"
+brew "neofetch"
+brew "zsh"
+brew "git"
+brew "stow"
+
+# casks
+cask "alt-tab"
+cask "bruno"
+cask "grandperspective"
+cask "helium-browser"
+cask "jordanbair-ice"
+cask "linearmouse"
+cask "localsend"
+cask "raycast"
+cask "tomatobar"
+cask "utm"
+cask "iina"
