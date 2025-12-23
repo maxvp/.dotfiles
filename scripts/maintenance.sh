@@ -1,0 +1,50 @@
+#!/bin/bash
+set -e
+
+echo "⚙️ Starting Zsh/Zimfw Maintenance..."
+
+# --- Configuration ---
+DOTFILES_DIR="$HOME/.dotfiles"
+ABBRS_FILE="$DOTFILES_DIR/zsh/abbrs.zsh"
+ALIASES_FILE="$DOTFILES_DIR/zsh/aliases.zsh"
+ZIM_HOME="$HOME/.zim"
+
+# 0. GIT SYNC
+echo "🔄 0. Pulling latest dotfiles..."
+if [ -d "$DOTFILES_DIR/.git" ]; then
+    git -C "$DOTFILES_DIR" pull --rebase
+fi
+
+# 1. ZIMFW UPDATE
+echo "📦 1. Updating Zimfw modules..."
+if [[ -f "$ZIM_HOME/zimfw.zsh" ]]; then
+    # Fixed: Run actions separately or just use 'update' which covers both
+    zsh -c "export ZIM_HOME='$ZIM_HOME'; source '$ZIM_HOME/zimfw.zsh'; zimfw update"
+fi
+
+# 2. SYNTAX HIGHLIGHTING SYNC
+echo "🎨 2. Generating dummy aliases for highlighting..."
+START_MARKER="# --- AUTO-GENERATED ABBR ALIASES START ---"
+END_MARKER="# --- AUTO-GENERATED ABBR ALIASES END ---"
+
+touch "$ALIASES_FILE"
+
+# Cross-platform sed logic to strip old block
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "/$START_MARKER/,/$END_MARKER/d" "$ALIASES_FILE"
+else
+    sed -i "/$START_MARKER/,/$END_MARKER/d" "$ALIASES_FILE"
+fi
+
+# Extract keys and build the new block
+{
+    echo "$START_MARKER"
+    grep -E '^abbr "[^"]+"=' "$ABBRS_FILE" | sed -E 's/abbr "([^"]+)".*/alias \1="true"/'
+    echo "$END_MARKER"
+} >> "$ALIASES_FILE"
+
+# 3. CLEANUP
+echo "🧹 3. Cleaning up compiled files..."
+find "$HOME" -name "*.zwc" -delete 2>/dev/null || true
+
+echo "✅ Done! Run 'source ~/.zshrc' to apply."

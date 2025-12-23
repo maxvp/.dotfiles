@@ -21,3 +21,5 @@ alias gc='true'
 alias gco='true'
 alias gcm='true'
 alias gac='true'
+# --- AUTO-GENERATED ABBR ALIASES START ---
+# --- AUTO-GENERATED ABBR ALIASES END ---
