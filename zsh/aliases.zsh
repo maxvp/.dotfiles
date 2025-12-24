@@ -18,8 +18,12 @@ alias gc="git commit"
 alias gcm="git commit -m"
 
 ### ls
+alias ls="eza"
 alias lsa="ls -a"
 alias lsla="ls -la"
+
+### unix
+alias cat="bat"
 
 ### KEEP AT BOTTOM OF LIST
 ### allow syntax highlighting for abbrs

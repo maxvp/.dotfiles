@@ -7,6 +7,8 @@ brew "fastfetch"
 brew "zsh"
 brew "git"
 brew "stow"
+brew "eza"
+brew "bat"
 
 # casks
 cask "alt-tab"
