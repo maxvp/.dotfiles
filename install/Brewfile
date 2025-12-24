@@ -4,7 +4,7 @@ tap "homebrew/brew"
 # cli
 brew "gh"
 brew "micro"
-brew "neofetch"
+brew "fastfetch"
 brew "zsh"
 brew "git"
 brew "stow"

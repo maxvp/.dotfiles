@@ -9,16 +9,15 @@ git clone https://github.com/maxvp/.dotfiles.git $HOME/.dotfiles && bash $HOME/.
 ## Directory structure
 
 ```txt
-.
-└── .dotfiles/
-    ├── README.md
-    ├── zsh/
-    │   ├── .zimrc         # change zimfw settings
-    │   ├── .zprofile      # change profile settings
-    │   ├── .zshrc         # change zsh settings
-    │   ├── abbrs.zsh      # add abbrs
-    │   └── aliases.zsh    # add aliases
-    └── scripts/
-        ├── bootstrap.sh   # initial setup
-        └── maintenance.sh # maintain zsh health
+~/.dotfiles/
+├── zsh/                # zsh configuration packages
+│   ├── .zshrc          # main config (sources files)
+│   ├── .zprofile       # login logic
+│   └── aliases.zsh     # aliases
+├── scripts/
+│   ├── bootstrap.sh    # setup script
+│   └── maintenance.sh  # sync and update plugins
+├── plugins/
+│   └── plugin_list.txt # list of plugins to install
+└── .gitignore
 ```
