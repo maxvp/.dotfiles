@@ -1,5 +1,5 @@
 # --- PROMPT ---
-PROMPT='%n@%m %~ λ '
+PROMPT='%F{cyan}%n%f@%m %B%F{blue}%~%f%b λ '
 
 # --- PLUGINS ---
 if [[ -d "$HOME/.dotfiles/plugins" ]]; then
