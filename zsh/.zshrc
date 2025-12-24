@@ -1,5 +1,5 @@
 # --- PROMPT ---
-PROMPT='%F{cyan}%n%f@%m %B%F{blue}%~%f%b λ '
+source "$HOME/.dotfiles/zsh/prompt.zsh"
 
 # --- OPTIONS ---
 source "$HOME/.dotfiles/zsh/options.zsh"

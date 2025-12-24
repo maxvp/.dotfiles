@@ -27,6 +27,7 @@ setopt MENU_COMPLETE            # Highlight first item in completion menu
 setopt EXTENDED_GLOB            # Use #, ^, and ~ for advanced matching
 setopt INTERACTIVE_COMMENTS     # Allow comments in interactive shell
 setopt APPEND_HISTORY           # Don't overwrite history file
+setopt prompt_subst             # Allow color in prompt
 
 # --- 3. HISTORY CONFIGURATION ---
 HISTFILE="${HOME}/.zsh_history"
