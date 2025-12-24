@@ -19,6 +19,3 @@ fi
 # --- SYNTAX HIGHLIGHTING (Last) ---
 [[ -f "$HOME/.dotfiles/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && \
     source "$HOME/.dotfiles/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# --- UTILITIES ---
-alias zmain="bash $HOME/.dotfiles/scripts/maintenance.sh && exec zsh"
