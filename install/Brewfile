@@ -1,28 +1,44 @@
 # Brewfile
 
-# cli
-brew "gh"
-brew "micro"
-brew "fastfetch"
-brew "zsh"
+### cli
+brew "gh" # GitHub CLI
+brew "micro" # improved nano
+brew "fastfetch" # maintained neofetch alt
+brew "zsh" # newer version than mac default
 brew "git"
-brew "stow"
-brew "eza"
-brew "bat"
-brew "mackup"
+brew "stow" # needed for using .dotfiles
+brew "eza" # improved ls
+brew "bat" # improved cat
+brew "mackup" # back up Mac app settings
+brew "tlrc" # tldr on commands
 
-# casks
-cask "alt-tab"
-cask "bruno"
-cask "grandperspective"
-cask "helium-browser"
-cask "jordanbaird-ice"
-cask "linearmouse"
-cask "localsend"
-cask "raycast"
-cask "tomatobar"
-cask "utm"
-cask "iina"
-cask "keka"
-cask "iterm2"
+### casks
+
+# essential
+cask "alt-tab" # improve alt-tab UX
+cask "jordanbaird-ice" # manage menu bar icons (dozer alt)
+cask "linearmouse" # disable mouse acceleration
+cask "raycast" # spotlight alternative
+cask "keka" # unarchiver
+cask "iterm2" # terminal alt
+cask "macmediakeyforwarder" # map media keys to spotify
+cask "rectangle" # window snapping. may not be necessary
+
+# browsers
+cask "firefox" # or any firefox based browser
+cask "helium-browser" # chromium-based browser
+
+# productivity
+cask "tomatobar" # pomodoro
+cask "meetingbar" # show meetings in menu bar
+cask "grandperspective" # show storage usage
+
+# media
 cask "spotify"
+cask "iina" # media player
+
+# technical
+cask "localsend" # send files locally
+cask "utm" # VMs
+cask "bruno" # API client
+brew "pearcleaner" # FOSS app cleaner
