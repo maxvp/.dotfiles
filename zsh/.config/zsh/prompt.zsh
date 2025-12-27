@@ -51,4 +51,4 @@ PROMPT='
 
 # 5. Right Prompt (RPROMPT)
 # %t is 12-hour format (e.g., 6:08PM)
-RPROMPT='%F{242}%t%f'
+RPROMPT='%F{242}(zsh)%f'
