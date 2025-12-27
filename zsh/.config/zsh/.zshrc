@@ -17,7 +17,7 @@ fi
 
 # --- ALIASES ---
 # We source a manual aliases file instead of a generated one
-[[ -f "$ZDOTDIR/aliases.zsh" ]] && source "$HOME/.dotfiles/zsh/aliases.zsh"
+[[ -f "$ZDOTDIR/aliases.zsh" ]] && source "$ZDOTDIR/aliases.zsh"
 
 # --- SYNTAX HIGHLIGHTING (place last) ---
 [[ -f "$HOME/.dotfiles/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && \
