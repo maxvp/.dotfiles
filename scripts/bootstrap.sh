@@ -1,20 +1,39 @@
 #!/bin/bash
 set -e
 
-# 0. Define variables
+# 0. Define Variables & Architecture Detection
 DOTFILES_DIR="$HOME/.dotfiles"
 TIMESTAMP=$(date +%Y%m%d)
-# Use Homebrew paths for Apple Silicon
-BREW_FISH="/opt/homebrew/bin/fish"
-BREW_ZSH="/bin/zsh" # Use system Zsh as the fallback anchor
+
+if [[ "$(uname -m)" == "arm64" ]]; then
+    BREW_PREFIX="/opt/homebrew"
+else
+    BREW_PREFIX="/usr/local"
+fi
+
+BREW_FISH="$BREW_PREFIX/bin/fish"
 
 # 1. Install Dependencies
 if [[ "$(uname)" == "Darwin" ]]; then
-    command -v brew >/dev/null 2>&1 || { echo "❌ Homebrew not found. Install it first."; exit 1; }
+    # --- AUTO-INSTALL HOMEBREW ---
+    if ! command -v brew >/dev/null 2>&1 && [[ ! -f "$BREW_PREFIX/bin/brew" ]]; then
+        echo "🍺 Homebrew not found. Installing now..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        
+        # Hydrate the current session with brew immediately
+        eval "$($BREW_PREFIX/bin/brew shellenv)"
+    else
+        echo "✅ Homebrew is already installed."
+        eval "$($BREW_PREFIX/bin/brew shellenv)"
+    fi
     
     echo "📦 Checking core dependencies..."
+    # Ensure Stow and Fish are present
     for pkg in stow fish; do
-        command -v $pkg >/dev/null 2>&1 || brew install $pkg
+        if ! command -v $pkg >/dev/null 2>&1; then
+            echo "   Installing $pkg..."
+            brew install $pkg
+        fi
     done
 fi
 
@@ -24,7 +43,8 @@ echo "🔗 Preparing symlinks..."
 XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME"
 
-targets=("$HOME/.zshenv" "$XDG_CONFIG_HOME/fish" "$XDG_CONFIG_HOME/zsh")
+# Define the targets that Stow will manage
+targets=("${HOME}/.zshenv" "${XDG_CONFIG_HOME}/fish" "${XDG_CONFIG_HOME}/zsh")
 
 for target in "${targets[@]}"; do
     if [[ -e "$target" && ! -L "$target" ]]; then
@@ -42,6 +62,7 @@ stow -v -R fish
 stow -v -R scripts
 
 # 4. INITIAL MAINTENANCE
+# Refresh plugins and sync with GitHub
 bash "$DOTFILES_DIR/scripts/maintenance.sh"
 
 # 5. SET FISH AS DEFAULT SHELL
@@ -50,7 +71,7 @@ CURRENT_SHELL=$(dscl . -read "$HOME" UserShell | awk '{print $2}')
 if [[ "$CURRENT_SHELL" != "$BREW_FISH" ]]; then
     echo "🐟 Setting Fish as default shell..."
     
-    # Check if fish is in /etc/shells (required for chsh)
+    # Add to /etc/shells if missing (requires sudo)
     if ! grep -q "$BREW_FISH" /etc/shells; then
         echo "   [SUDO] Adding $BREW_FISH to /etc/shells..."
         echo "$BREW_FISH" | sudo tee -a /etc/shells
@@ -58,17 +79,10 @@ if [[ "$CURRENT_SHELL" != "$BREW_FISH" ]]; then
     
     # Change the shell
     chsh -s "$BREW_FISH"
-    echo "✅ Default shell changed to Fish."
+    echo "✅ Default shell changed to Fish ($BREW_FISH)."
 else
     echo "✅ Fish is already the default shell."
 fi
 
-# 6. ENSURE ZSH FALLBACK IS READY
-if [[ ! -f "$HOME/.zshenv" ]]; then
-    echo "⚠️ Warning: Zsh fallback might be misconfigured (no .zshenv)."
-else
-    echo "🛡️ Zsh fallback is linked and ready at $BREW_ZSH"
-fi
-
 echo "---"
-echo "🎉 Setup complete! Please restart your terminal."
+echo "🎉 Setup complete! Restart terminal."
