@@ -10,7 +10,7 @@ end
 abbr -a ga   "git add"
 abbr -a gaa  "git add --all"
 abbr -a gc   "git commit"
-abbr -a gcm --position anywhere --set-cursor  "git commit -m "%""
+abbr -a gcm  --set-cursor  'git commit -m "%"'
 abbr -a gco  "git checkout"
 abbr -a gcop "git checkout production"
 abbr -a gd   "git diff"
