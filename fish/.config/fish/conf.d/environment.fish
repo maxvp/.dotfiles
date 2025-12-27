@@ -17,3 +17,12 @@ set -gx VISUAL micro
 
 # Homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
+
+# Pure prompt
+# Pure Prompt Configuration
+set -gx pure_show_system_time false
+set -gx pure_color_system_time pure_color_mute
+set -gx pure_symbol_prompt "λ"
+set -gx pure_shorten_prompt_current_directory_length 2
+set -gx pure_symbol_git_unpulled_commits "↓"
+set -gx pure_symbol_git_unpushed_commits "↑"
