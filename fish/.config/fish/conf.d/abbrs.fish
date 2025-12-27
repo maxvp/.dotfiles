@@ -19,10 +19,14 @@ abbr -a gp   "git push"
 abbr -a gl   "git pull"
 
 # --- Maintenance ---
+## maintenance script
 abbr -a zmain "bash $HOME/.dotfiles/scripts/maintenance.sh && exec fish"
+## switch shells
+abbr -a tozsh "chsh -s $(which zsh) && echo 'Switched to zsh. Restart terminal.'"
 abbr -a reload "exec fish"
 
 # --- Utils ---
-abbr -a ls "eza --icons --group-directories-first"
-abbr -a ll "eza -lh --icons --group-directories-first"
-abbr -a la "eza -lah --icons --group-directories-first"
+abbr -a ls "eza"
+abbr -a lsa "eza -a"
+abbr -a ll "eza -lh --group-directories-first"
+abbr -a la "eza -lah --group-directories-first"

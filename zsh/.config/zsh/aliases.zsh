@@ -25,6 +25,10 @@ alias lsla="ls -la"
 ### unix
 alias cat="bat"
 
+### shell
+# switch to fish
+alias tofish="chsh -s $(which fish) && echo 'Switched to fish. Restart terminal.'"
+
 ### KEEP AT BOTTOM OF LIST
 ### allow syntax highlighting for abbrs
 #alias gc='true'
