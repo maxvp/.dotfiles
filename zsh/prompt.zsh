@@ -47,7 +47,7 @@ precmd() {
 # Removed %B (bold start) and %b (bold end)
 PROMPT='
 %F{blue}%~%f ${vcs_info_msg_0_}${GIT_STATUS_COUNTS}
-%(?.%f.%F{red})⟡%f '
+%(?.%f.%F{red})%%%f '
 
 # 5. Right Prompt (RPROMPT)
 # %t is 12-hour format (e.g., 6:08PM)
