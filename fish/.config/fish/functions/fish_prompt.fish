@@ -31,7 +31,7 @@ function fish_prompt
         end
         if test "$staged" -gt 0
             set_color green
-            echo -n " +$staged"
+            echo -n " +$staged" # Ensure there is a space before the +
         end
     end
 
