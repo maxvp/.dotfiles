@@ -4,11 +4,7 @@ function fish_prompt
     set -l last_status $status
 
     # Configure the internal git prompt behavior
-    set -g __fish_git_prompt_showdirtystate 1
-    set -g __fish_git_prompt_showstagedstate 1
-    set -g __fish_git_prompt_showuntrackedfiles 1
-    set -g __fish_git_prompt_color_branch magenta
-    set -g __fish_git_prompt_char_stateseparator ' '
+    set -g fish_prompt_pwd_dir_length 3
 
     echo 
     set_color blue
