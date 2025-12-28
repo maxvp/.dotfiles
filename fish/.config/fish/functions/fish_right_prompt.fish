@@ -1,10 +1,22 @@
-# ~/.dotfiles/fish/.config/fish/functions/fish_right_prompt.fish
+function __git_info
+    command git rev-parse --is-inside-work-tree >/dev/null 2>&1; or return
+
+    set -l branch (command git symbolic-ref --short HEAD 2>/dev/null \
+        || command git rev-parse --short HEAD 2>/dev/null)
+
+    command git diff --quiet --ignore-submodules HEAD >/dev/null 2>&1
+    or set -l dirty '*'
+
+    echo "$branch$dirty"
+end
 
 function fish_right_prompt
-    if test $CMD_DURATION -gt 100
-        set -l seconds (math -s2 "$CMD_DURATION / 1000")
-        set_color 929292
-        echo -n "$seconds"s
-        set_color normal
-    end
+    set -g fish_prompt_pwd_dir_length 3
+
+    set_color blue
+    echo -n (prompt_pwd)
+    set_color normal
+
+    set -l git (__git_info)
+    test -n "$git"; and echo -n " $git"
 end
