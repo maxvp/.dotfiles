@@ -11,6 +11,16 @@ end
 fish_add_path -m ~/.local/bin
 fish_add_path -m ~/bin
 
+## Volta
+set -gx VOLTA_HOME "$HOME/.volta"
+fish_add_path -m "$VOLTA_HOME/bin"
+
+## Windsurf
+fish_add_path -m "$HOME/.codeium/windsurf/bin"
+
+## VS Code
+fish_add_path -m "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 # Editors
 set -gx EDITOR micro
 set -gx VISUAL micro
