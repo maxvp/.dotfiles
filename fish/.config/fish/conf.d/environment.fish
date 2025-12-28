@@ -52,3 +52,5 @@ set -gx pure_symbol_git_dirty '*'
 set -gx pure_symbol_git_unpulled_commits '↓'
 set -gx pure_symbol_git_unpushed_commits '↑'
 set -gx pure_show_numbered_git_indicator true
+set -gx pure_symbol_prompt 'λ'
+set -gx pure_symbol_virtualenv_prefix '𓆙 '
