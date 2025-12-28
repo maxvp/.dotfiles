@@ -22,7 +22,7 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx __fish_git_prompt_show_informative_status 1
 
 ## colors
-set -gx __fish_git_prompt_color_branch magenta --bold
+set -gx __fish_git_prompt_color_branch magenta
 set -gx __fish_git_prompt_color_stagedstate green
 set -gx __fish_git_prompt_color_dirtystate red
 set -gx __fish_git_prompt_color_untrackedfiles yellow
@@ -34,3 +34,5 @@ set -gx __fish_git_prompt_char_dirtystate '*'
 set -gx __fish_git_prompt_char_stagedstate '+'
 set -gx __fish_git_prompt_char_untrackedfiles '?'
 set -gx __fish_git_prompt_char_cleanstate ''
+set -gx __fish_git_prompt_char_prefix ''
+set -gx __fish_git_prompt_char_suffix ''
